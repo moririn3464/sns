@@ -15,4 +15,9 @@ class Tweet extends Model
       'id', 'tweet', 
     ];
 
+    public function getFormattedDateAttribute()
+    {
+      return Carbon::createFromFormat('Y-m-d H:i:s', $this->attributes['created_at'])->format('Y/m/d');
+    }
+
 }

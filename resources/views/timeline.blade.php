@@ -1,9 +1,10 @@
 @extends('layouts.layout')
 
 @section('content')
-  <div>
+  <div class="divide-solid border-gray-300 divide-y">
       @foreach($tweets as $tweet)
-      <div>
+      <div class="p-4">
+        <p>{{$tweet->FormattedDate}}</p>
         <p>{{$tweet->tweet}}</p>
       </div>
       @endforeach
@@ -12,12 +13,11 @@
   <div>
     <form action="{{ route('timeline.post') }}" method="POST">
       @csrf
-      <div class="form-group">
-        <label for="tweet">ツイート</label>
+      <div class="">
         <input type="text" name="tweet" id="tweet" value="{{ old('tweet') }}" />
       </div>
-      <div class="text-right">
-        <button type="submit" class="btn btn-primary">送信</button>
+      <div class="">
+        <button type="submit" class="btn btn-primary">投稿する</button>
       </div>
     </form>
   </div>
